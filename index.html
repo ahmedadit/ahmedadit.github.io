@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ishraq Ahmed — Portfolio</title>
+<meta name="description" content="Ishraq Ahmed — growth, product and data portfolio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f7fa; --surface:#ffffff; --ink:#18202b; --muted:#5d6876; --line:#dfe4ea;
+  --accent:#2f62c9; --accent-soft:#e3ebfa; --glow:rgba(47,98,201,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f141b; --surface:#161d27; --ink:#e6ebf2; --muted:#93a0b0; --line:#253040;
+    --accent:#7aa6f5; --accent-soft:#1c2a40; --glow:rgba(122,166,245,.08);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans KR",system-ui,sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+html[lang="ko"] body{word-break:keep-all}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(520px circle at var(--mx,50%) var(--my,-20%),var(--glow),transparent 70%)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.mono{font-family:"IBM Plex Mono",monospace}
+
+.layout{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px}
+
+/* sidebar */
+.side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:84px 0 56px}
+.side h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(2.4rem,4.4vw,3.3rem);line-height:1.05;letter-spacing:-.02em}
+.role{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:1.15rem;margin-top:12px}
+.tagline{color:var(--accent);font-weight:600;margin-top:18px;font-size:1.05rem}
+.lead{color:var(--muted);margin-top:12px;max-width:380px}
+.toc{list-style:none;margin-top:52px}
+.toc a{display:flex;align-items:center;gap:14px;padding:7px 0;color:var(--muted);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.toc a:hover{text-decoration:none;color:var(--ink)}
+.toc .bar{display:inline-block;height:1px;width:28px;background:currentColor;transition:width .3s ease,background .3s}
+.toc a.active{color:var(--ink)}
+.toc a.active .bar{width:64px;background:var(--accent)}
+.side-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.side-foot a{color:var(--muted);font-size:.9rem;font-weight:500}
+.side-foot a:hover{color:var(--accent);text-decoration:none}
+#lang{margin-left:auto;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px;font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;transition:border-color .2s}
+#lang:hover{border-color:var(--accent)}
+
+/* content */
+main{padding:84px 0 40px}
+section{padding-bottom:96px;scroll-margin-top:40px}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+.sec-h .num{color:var(--accent);font-size:.85rem}
+.sec-h h2{font-family:"Space Grotesk",sans-serif;font-size:1.5rem;letter-spacing:-.01em}
+.sec-h::after{content:"";flex:1;height:1px;background:var(--line);margin-left:6px;transform:translateY(-6px)}
+.muted{color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.stat{border-left:2px solid var(--accent);padding:4px 0 4px 16px}
+.stat b{display:block;font-family:"Space Grotesk",sans-serif;font-size:1.9rem;line-height:1.2}
+.stat span{font-size:.85rem;color:var(--muted)}
+
+.entry{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:22px;margin:0 -22px;border-radius:12px;transition:background .25s,box-shadow .25s}
+.entry:hover{background:var(--surface);box-shadow:0 1px 0 var(--line),0 12px 30px -18px rgba(0,0,0,.25)}
+.when{font-size:.78rem;color:var(--muted);padding-top:4px;letter-spacing:.02em}
+.entry h3{font-size:1.05rem;font-weight:600}
+.entry .sub{color:var(--muted);font-size:.9rem}
+ul.pts{margin:12px 0 0 0;list-style:none}
+ul.pts li{position:relative;padding-left:18px;margin-bottom:7px;font-size:.95rem;color:var(--muted)}
+ul.pts li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+
+.proj{padding:22px;margin:0 -22px 6px;border-radius:12px;transition:background .25s,box-shadow .25s}
+.proj:hover{background:var(--surface);box-shadow:0 1px 0 var(--line),0 12px 30px -18px rgba(0,0,0,.25)}
+.proj-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.proj h3{font-size:1.1rem;font-weight:600}
+.proj p{color:var(--muted);font-size:.95rem;margin-top:8px}
+.credit{font-size:.82rem;color:var(--accent);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:.75rem;font-weight:600}
+.arrow{display:inline-block;transition:transform .2s}
+a:hover .arrow{transform:translate(3px,-3px)}
+
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px}
+.skills h3{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.skills p{color:var(--muted);font-size:.95rem}
+
+.contact-box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px}
+.contact-box p{color:var(--muted);margin-bottom:20px}
+.btn{display:inline-block;padding:10px 20px;border-radius:8px;font-weight:600;font-size:.92rem;border:1px solid var(--accent);margin:0 8px 8px 0;transition:transform .2s}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+footer{color:var(--muted);font-size:.82rem;padding-top:8px}
+
+/* motion: staggered slide-in from the left with a soft blur */
+.rv{opacity:0;transform:translateX(-18px);filter:blur(4px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1),filter .6s ease}
+.rv.in{opacity:1;transform:none;filter:none}
+.side .intro>*{opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.side .intro>*:nth-child(2){animation-delay:.08s}.side .intro>*:nth-child(3){animation-delay:.16s}.side .intro>*:nth-child(4){animation-delay:.24s}
+@keyframes rise{to{opacity:1;transform:none}}
+[data-lang]{transition:opacity .2s,transform .2s}
+.swapping [data-lang]{opacity:0;transform:translateY(4px)}
+@media (prefers-reduced-motion:reduce){.rv,.side .intro>*{opacity:1;transform:none;filter:none;animation:none;transition:none}}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr;gap:0}
+  .side{position:relative;height:auto;padding:64px 0 24px}
+  .toc{display:none}
+  .side-foot{margin-top:28px}
+  main{padding-top:40px}
+  .entry{grid-template-columns:1fr;gap:4px}
+  .stats{grid-template-columns:1fr 1fr 1fr}
+  .skills{grid-template-columns:1fr}
+}
+@media (max-width:480px){.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside class="side">
+  <div>
+    <div class="intro">
+      <h1>Ishraq Ahmed</h1>
+      <p class="role" data-i18n="role">Growth · Product · Data</p>
+      <p class="tagline" data-i18n="hero_title">Built for growth. Grounded in data.</p>
+      <p class="lead" data-i18n="hero_lead">Computer Science student at Korea University with two years in fintech operations at a cross-border remittance app, where monthly transactions doubled during my time.</p>
+    </div>
+    <ul class="toc">
+      <li><a href="#about"><span class="bar"></span><span data-i18n="nav_about">About</span></a></li>
+      <li><a href="#experience"><span class="bar"></span><span data-i18n="nav_exp">Experience</span></a></li>
+      <li><a href="#education"><span class="bar"></span><span data-i18n="nav_edu">Education</span></a></li>
+      <li><a href="#projects"><span class="bar"></span><span data-i18n="nav_proj">Projects</span></a></li>
+      <li><a href="#skills"><span class="bar"></span><span data-i18n="nav_skills">Skills</span></a></li>
+      <li><a href="#contact"><span class="bar"></span><span data-i18n="nav_contact">Contact</span></a></li>
+    </ul>
+  </div>
+  <div class="side-foot">
+    <a href="https://github.com/ahmedadit" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/ishraq-ahmed-456161282/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:adit.ahmed02@gmail.com">Email</a>
+    <button id="lang" aria-label="Switch language">한국어</button>
+  </div>
+</aside>
+
+<main>
+  <section id="about">
+    <div class="sec-h rv"><span class="num mono">01</span><h2 data-i18n="about_h">About</h2></div>
+    <p class="muted rv" data-i18n="about_p">I work where customers, operations and data meet. At GmoneyTrans I handled customer acquisition and retention, solved time-sensitive remittance issues with domestic and international banking partners, and built an AI-assisted marketing workflow the team could reuse. On the technical side, I build data pipelines and simple ML models end to end, and I care most about whether a model is solving the right problem. I grew up in the US until middle school before moving to Bangladesh, so working across cultures and languages comes naturally to me. I transferred to Korea University after starting Computer Science at North South University, and I graduate in February 2027.</p>
+    <div class="stats">
+      <div class="stat rv"><b><span class="count" data-to="2">0</span>×</b><span data-i18n="s1">Monthly transactions (30k → 60k+)</span></div>
+      <div class="stat rv"><b>~<span class="count" data-to="2">0</span> <span data-i18n="yrs">yrs</span></b><span data-i18n="s2">Fintech ops &amp; marketing</span></div>
+      <div class="stat rv"><b><span class="count" data-to="28">0</span>k</b><span data-i18n="s3">Rows engineered from 11 yrs of weather data</span></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-h rv"><span class="num mono">02</span><h2 data-i18n="exp_h">Experience</h2></div>
+    <div class="entry rv">
+      <div class="when mono" data-i18n="gm_dates">MAY 2024 — MAR 2026</div>
+      <div>
+        <h3>Retention Staff · GmoneyTrans</h3>
+        <p class="sub" data-i18n="gm_desc">Cross-border remittance app</p>
+        <ul class="pts">
+          <li data-i18n="gm1">Drove customer acquisition, product sales and consumer marketing, including social media content.</li>
+          <li data-i18n="gm2">Resolved time-sensitive remittance issues with domestic and international banks and overseas partners.</li>
+          <li data-i18n="gm3">Worked daily with CRM systems, operational dashboards and API log monitoring.</li>
+          <li data-i18n="gm4">Built a repeatable AI-assisted marketing workflow rather than one-off chatbot use.</li>
+          <li data-i18n="gm5">Contributed to monthly transaction volume growing from 30,000+ to 60,000+.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-h rv"><span class="num mono">03</span><h2 data-i18n="edu_h">Education</h2></div>
+    <div class="entry rv">
+      <div class="when mono" data-i18n="ku_dates">2024 — FEB 2027 (EXP.)</div>
+      <div>
+        <h3 data-i18n="ku_role">Korea University</h3>
+        <p class="sub" data-i18n="ku_major">B.S. Computer Science (transfer)</p>
+      </div>
+    </div>
+    <div class="entry rv">
+      <div class="when mono">2021 — 2023</div>
+      <div>
+        <h3 data-i18n="nsu_role">North South University · Bangladesh</h3>
+        <p class="sub" data-i18n="nsu_major">Computer Science, transferred to Korea University</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-h rv"><span class="num mono">04</span><h2 data-i18n="proj_h">Projects</h2></div>
+    <article class="proj rv">
+      <div class="proj-top"><h3 data-i18n="rain_t">Rainfall Prediction Pipeline</h3></div>
+      <p data-i18n="rain_d">Collected 11 years of hourly weather data from the Open-Meteo API across 7 locations and engineered daily features into a ~28k-row dataset. Spotted a heavy class imbalance in the rain target and redefined it around the 90th percentile so the model learns a meaningful problem.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">REST API</span><span class="tag">Feature engineering</span><span class="tag">Classification</span></div>
+    </article>
+    <article class="proj rv">
+      <div class="proj-top">
+        <h3><a href="https://github.com/runeezubaida/excusinator" target="_blank" rel="noopener">Excusinator <span class="arrow">↗</span></a></h3>
+        <span class="credit" data-i18n="exc_co">Co-built with Runee Zubaida</span>
+      </div>
+      <p data-i18n="exc_d">A text classifier built with TF-IDF and logistic regression. User corrections are saved to a database and used to retrain the model, so feedback turns directly into product improvement.</p>
+      <div class="tags"><span class="tag">TF-IDF</span><span class="tag">Logistic regression</span><span class="tag">Database</span><span class="tag">Feedback loop</span></div>
+    </article>
+  </section>
+
+  <section id="skills">
+    <div class="sec-h rv"><span class="num mono">05</span><h2 data-i18n="skills_h">Skills</h2></div>
+    <div class="skills">
+      <div class="rv"><h3 data-i18n="sk1h">Product &amp; Growth</h3><p data-i18n="sk1">Customer acquisition and retention, consumer marketing, social content, partner coordination</p></div>
+      <div class="rv"><h3 data-i18n="sk2h">Data &amp; ML</h3><p data-i18n="sk2">Python, API data collection, feature engineering, TF-IDF, logistic regression</p></div>
+      <div class="rv"><h3 data-i18n="sk3h">Tools</h3><p data-i18n="sk3">CRM systems, operational dashboards, API logs, AI-assisted workflows</p></div>
+      <div class="rv"><h3 data-i18n="sk4h">Languages</h3><p data-i18n="sk4">English (IELTS 8.5), Bengali</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-h rv"><span class="num mono">06</span><h2 data-i18n="contact_h">Contact</h2></div>
+    <div class="contact-box rv">
+      <p data-i18n="contact_p">Open to product, growth and data roles. The fastest way to reach me is email.</p>
+      <a class="btn primary" href="mailto:adit.ahmed02@gmail.com">adit.ahmed02@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/ishraq-ahmed-456161282/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/ahmedadit" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <footer style="margin-top:40px">© <span id="yr"></span> Ishraq Ahmed</footer>
+  </section>
+</main>
+</div>
+
+<script>
+const KO={
+  role:"그로스 · 프로덕트 · 데이터",
+  hero_title:"성장을 만들고, 데이터로 증명합니다.",
+  hero_lead:"고려대학교 컴퓨터학과 재학 중이며, 해외송금 앱에서 약 2년간 핀테크 운영을 담당하며 월 거래 건수가 두 배로 늘어나는 과정에 함께했습니다.",
+  nav_about:"소개",nav_exp:"경력",nav_edu:"학력",nav_proj:"프로젝트",nav_skills:"역량",nav_contact:"연락처",
+  about_h:"소개",
+  about_p:'고객, 운영, 데이터가 만나는 지점에서 일합니다. GmoneyTrans에서 고객 유치·유지를 맡았고, 국내외 은행 파트너와 함께 시급한 송금 이슈를 해결했으며, 팀이 반복해서 쓸 수 있는 AI 기반 마케팅 워크플로를 만들었습니다. 기술적으로는 데이터 파이프라인과 간단한 ML 모델을 처음부터 끝까지 만들고, 무엇보다 모델이 "맞는 문제"를 풀고 있는지를 중요하게 생각합니다. 중학교 때까지 미국에서 자라고 이후 방글라데시로 이주해, 다양한 문화와 언어 환경에서 일하는 데 익숙합니다. 방글라데시 North South University에서 컴퓨터공학을 시작한 뒤 고려대학교로 편입했으며, 2027년 2월 졸업 예정입니다.',
+  s1:"월 거래 건수 (3만 → 6만+)",s2:"핀테크 운영·마케팅",s3:"11년치 기상 데이터로 구축한 행 수",yrs:"년",
+  exp_h:"경력",gm_dates:"2024.05 — 2026.03",gm_desc:"해외송금 앱",
+  gm1:"SNS 콘텐츠를 포함한 고객 유치, 상품 판매, 소비자 마케팅을 담당했습니다.",
+  gm2:"국내외 은행 및 해외 파트너사와 협력해 시급한 송금 이슈를 해결했습니다.",
+  gm3:"CRM, 운영 대시보드, API 로그 모니터링을 일상적으로 다뤘습니다.",
+  gm4:"일회성 챗봇 활용이 아닌, 반복 가능한 AI 기반 마케팅 워크플로를 구축했습니다.",
+  gm5:"월 거래 건수가 3만 건에서 6만 건 이상으로 성장하는 데 기여했습니다.",
+  edu_h:"학력",ku_role:"고려대학교",ku_major:"컴퓨터학과 학사 (편입)",ku_dates:"2024 — 2027.02 (예정)",
+  nsu_role:"North South University · 방글라데시",nsu_major:"컴퓨터공학 전공, 고려대학교로 편입",
+  proj_h:"프로젝트",
+  rain_t:"강수 예측 데이터 파이프라인",
+  rain_d:"Open-Meteo API로 7개 지역의 11년치 시간별 기상 데이터를 수집하고, 일 단위 피처로 가공해 약 2.8만 행의 데이터셋을 만들었습니다. 강수 타깃의 심한 클래스 불균형을 발견해 90분위 기준으로 타깃을 재정의했고, 모델이 의미 있는 문제를 학습하도록 설계했습니다.",
+  exc_co:"Runee Zubaida와 공동 개발",
+  exc_d:"TF-IDF와 로지스틱 회귀 기반 텍스트 분류기입니다. 사용자가 잘못된 분류를 고치면 DB에 저장되고 이를 바탕으로 모델을 재학습해, 사용자 피드백이 곧바로 제품 개선으로 이어집니다.",
+  skills_h:"역량",sk1h:"프로덕트·그로스",sk1:"고객 유치·유지, 소비자 마케팅, SNS 콘텐츠, 파트너 협업",
+  sk2h:"데이터·ML",sk2:"Python, API 데이터 수집, 피처 엔지니어링, TF-IDF, 로지스틱 회귀",
+  sk3h:"툴",sk3:"CRM, 운영 대시보드, API 로그, AI 기반 워크플로",sk4h:"언어",sk4:"영어 (IELTS 8.5), 벵골어",
+  contact_h:"연락처",contact_p:"프로덕트, 그로스, 데이터 직무에 관심이 있습니다. 이메일로 연락 주시면 가장 빠르게 답변드립니다."
+};
+const EN={};
+const els=document.querySelectorAll("[data-i18n]");
+els.forEach(e=>{EN[e.dataset.i18n]=e.textContent;e.setAttribute("data-lang","")});
+function apply(l){
+  const d=l==="ko"?KO:EN;
+  els.forEach(e=>{const v=d[e.dataset.i18n];if(v!=null)e.textContent=v});
+  document.documentElement.lang=l;
+  document.getElementById("lang").textContent=l==="ko"?"EN":"한국어";
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+let cur="en";
+try{cur=localStorage.getItem("lang")||((navigator.language||"").startsWith("ko")?"ko":"en")}catch(e){}
+apply(cur);
+document.getElementById("lang").onclick=()=>{
+  document.body.classList.add("swapping");
+  setTimeout(()=>{cur=cur==="ko"?"en":"ko";apply(cur);document.body.classList.remove("swapping")},200);
+};
+
+// staggered reveal: items in the same section enter one after another
+document.querySelectorAll("section").forEach(sec=>{
+  sec.querySelectorAll(".rv").forEach((el,i)=>el.style.transitionDelay=(i*0.08)+"s");
+});
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function countUp(el){
+  const to=+el.dataset.to;if(reduce){el.textContent=to;return}
+  const t0=performance.now(),dur=1100;
+  (function step(t){const p=Math.min((t-t0)/dur,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)})(t0);
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add("in");
+  e.target.querySelectorAll(".count").forEach(countUp);
+  io.unobserve(e.target);
+}),{threshold:.15});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+
+// sidebar tracker: highlight the section currently in view
+const links=[...document.querySelectorAll(".toc a")];
+const spy=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting)links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));
+}),{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("main section").forEach(s=>spy.observe(s));
+
+// soft spotlight that follows the cursor (mouse only)
+if(matchMedia("(pointer:fine)").matches&&!reduce){
+  addEventListener("pointermove",e=>{
+    document.body.style.setProperty("--mx",e.clientX+"px");
+    document.body.style.setProperty("--my",e.clientY+"px");
+  });
+}
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
